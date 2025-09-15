@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
-from google.adk import Agent, ToolConfig
+from google.adk.agents import Agent, LlmAgent
 import logging
 
 logger = logging.getLogger(__name__)
@@ -8,9 +8,10 @@ logger = logging.getLogger(__name__)
 class BaseStockAgent(Agent, ABC):
     """Base class for all stock analysis agents"""
 
-    def __init__(self, name: str, description: str, tools: Optional[List[ToolConfig]] = None):
+    def __init__(self, name: str, description: str, model: str = "gemini-2.0-flash", tools: Optional[List] = None):
         super().__init__(
             name=name,
+            model=model,
             description=description,
             tools=tools or []
         )
@@ -59,8 +60,8 @@ class AnalysisAgent(BaseStockAgent):
 class CoordinatorAgent(BaseStockAgent):
     """Base class for coordinator agents that orchestrate other agents"""
 
-    def __init__(self, name: str, description: str, child_agents: List[BaseStockAgent] = None):
-        super().__init__(name, description)
+    def __init__(self, name: str, description: str, model: str = "gemini-2.0-flash", child_agents: List[BaseStockAgent] = None):
+        super().__init__(name, description, model)
         self.child_agents = child_agents or []
 
     async def coordinate_analysis(self, symbols: List[str]) -> Dict[str, Any]:

@@ -24,6 +24,7 @@ class DayTradingCoordinator(CoordinatorAgent):
         super().__init__(
             name="DayTradingCoordinator",
             description="Coordinates day trading analysis for 10% profit opportunities",
+            model="gemini-2.0-flash",
             child_agents=[
                 self.stock_collector,
                 self.news_collector,

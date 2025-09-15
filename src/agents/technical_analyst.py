@@ -14,7 +14,8 @@ class TechnicalAnalyst(AnalysisAgent):
     def __init__(self):
         super().__init__(
             name="TechnicalAnalyst",
-            description="Performs comprehensive technical analysis using multiple indicators"
+            description="Performs comprehensive technical analysis using multiple indicators",
+            model="gemini-2.0-flash"
         )
 
     async def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:

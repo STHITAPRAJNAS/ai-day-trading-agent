@@ -23,6 +23,7 @@ class MasterCoordinator(CoordinatorAgent):
         super().__init__(
             name="MasterCoordinator",
             description="Orchestrates comprehensive stock analysis to generate top 10 daily picks",
+            model="gemini-2.0-flash",
             child_agents=[
                 self.stock_collector,
                 self.news_collector,

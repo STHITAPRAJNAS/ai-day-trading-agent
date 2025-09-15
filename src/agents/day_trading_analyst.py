@@ -15,7 +15,8 @@ class DayTradingAnalyst(AnalysisAgent):
     def __init__(self):
         super().__init__(
             name="DayTradingAnalyst",
-            description="Identifies day trading opportunities with 10% upside potential"
+            description="Identifies day trading opportunities with 10% upside potential",
+            model="gemini-2.0-flash"
         )
 
     async def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:

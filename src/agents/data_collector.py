@@ -16,7 +16,8 @@ class StockDataCollector(DataCollectionAgent):
     def __init__(self):
         super().__init__(
             name="StockDataCollector",
-            description="Collects comprehensive stock price and volume data"
+            description="Collects comprehensive stock price and volume data",
+            model="gemini-2.0-flash"
         )
 
     async def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:
@@ -92,7 +93,8 @@ class NewsCollector(DataCollectionAgent):
     def __init__(self, news_api_key: Optional[str] = None):
         super().__init__(
             name="NewsCollector",
-            description="Collects financial news and market sentiment"
+            description="Collects financial news and market sentiment",
+            model="gemini-2.0-flash"
         )
         self.news_api_key = news_api_key
 
@@ -170,7 +172,8 @@ class MarketDataCollector(DataCollectionAgent):
     def __init__(self):
         super().__init__(
             name="MarketDataCollector",
-            description="Collects market indices, sector performance, and economic indicators"
+            description="Collects market indices, sector performance, and economic indicators",
+            model="gemini-2.0-flash"
         )
 
     async def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:
